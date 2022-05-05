@@ -152,8 +152,6 @@ def play():
         else:
             turn = 'x'
          
-    
-    
-        
+       
 play()        
 
