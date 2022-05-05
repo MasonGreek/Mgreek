@@ -1,0 +1,159 @@
+board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
+
+def printBoard(board):
+    print(board[0] + " | " + board[1] + " | " + board[2])
+    print("- | - | -")
+    print(board[3] + " | " + board[4] + " | " + board[5])
+    print("- | - | -")
+    print(board[6] + " | " + board[7] + " | " + board[8])
+
+TL = board[0]
+TM = board[1]
+TR = board[2]
+ML = board[3]
+MM = board[4]
+MR = board[5]
+BL = board[6]
+BM = board[7]
+BR = board[8]
+
+
+def isValid(board):
+    if spot == "TL":
+        board[0] = turn
+        printBoard(board)
+    elif spot == "TM":
+        board[1] = turn
+        printBoard(board)
+    elif spot == "TR":
+        board[2] = turn
+        printBoard(board)
+    elif spot == "ML":
+        board[3] = turn
+        printBoard(board)
+    elif spot == "MM":
+        board[4] = turn
+        printBoard(board)
+    elif spot == "MR":
+        board[5] = turn
+        printBoard(board)
+    elif spot == "BL":
+        board[6] = turn
+        printBoard(board)
+    elif spot == "BM":
+        board[7] = turn
+        printBoard(board)
+    elif spot == "BM":
+        board[8] = turn
+        printBoard(board)
+    else:
+        print("invalid move")
+        
+    
+
+def play():
+    
+    turn = 'x'
+    turns = 0
+    win = "false"
+    
+    def checkWin(board):
+        while board[0] == board[1] == board[2] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        while board[3] == board[4] == board[5] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        while board[6] == board[7] == board[8] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        while board[0] == board[4] == board[8] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        while board[2] == board[4] == board[6] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        while board[1] == board[4] == board[7] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        while board[0] == board[3] == board[6] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        while board[2] == board[5] == board[8] == turn:
+            print(turn + " Won!")
+            win = "true"
+            break
+        else:
+            win = "false"
+            
+    while win != "true":
+        printBoard(board)
+        print("Your turn " + turn + "!")
+        print("\n")
+    
+        spot = input("Where would you like to go?")
+        if spot == "TL":
+            board[0] = turn
+            turns = turns + 1
+            
+        elif spot == "TM":
+            board[1] = turn
+            turns = turns + 1
+            
+        elif spot == "TR":
+            board[2] = turn
+            turns = turns + 1
+          
+        elif spot == "ML":
+            board[3] = turn
+            turns = turns + 1
+          
+        elif spot == "MM":
+            board[4] = turn
+            turns = turns + 1
+           
+        elif spot == "MR":
+            board[5] = turn
+            turns = turns + 1
+            
+        elif spot == "BL":
+            board[6] = turn
+            turns = turns + 1
+             
+        elif spot == "BM":
+            board[7] = turn
+            turns = turns + 1
+           
+        elif spot == "BR":
+            board[8] = turn
+            turns = turns + 1
+           
+        else:
+            print("Invalid Move (or spot is taken)")
+            continue
+        
+        if turns >= 5:
+            checkWin(board)
+            if win == "true":
+                break
+        if turns == 9:
+            print("Tie Game")
+            break    
+        
+        if turn == 'x':
+            turn = 'o'
+        else:
+            turn = 'x'
+         
+    
+    
+        
+play()        
+
